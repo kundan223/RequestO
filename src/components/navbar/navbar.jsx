@@ -1,19 +1,30 @@
 // Navbar.js
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import PopupForm from "./PopupForm";
-import profile from "../../asssets/user.png"; // Corrected import
+import profile from "../../asssets/user.png"; 
+import Signup from "./Signup";
 
 const Navbar = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isSignupPopupOpen, setSignupPopupOpen] = useState(false);
 
   const openPopup = () => {
     setPopupOpen(true);
   };
 
+  const openSignupPopup = () => {
+    setSignupPopupOpen(true);
+  };
+
   const closePopup = () => {
     setPopupOpen(false);
+  };
+
+  const closeSignupPopup = () => {
+    setSignupPopupOpen(false);
   };
 
   return (
@@ -27,10 +38,15 @@ const Navbar = () => {
           >
             Post Request
           </span>
+          <span
+            className="post-request-text px-3  py-1 mb-[auto]"
+            onClick={openSignupPopup}
+          >
+            LOGIN/SIGNUP
+          </span>
           <Link
             to="/profile"
             className="profile-link"
-            // Apply orange border on hover
             style={{ ':hover': { border: '2px solid orange' } }}
           >
             <img
@@ -41,8 +57,9 @@ const Navbar = () => {
           </Link>
         </div>
       </header>
-
-      {isPopupOpen && <PopupForm closePopup={closePopup} />}
+      
+      {isPopupOpen && <PopupForm closePopup={closePopup} />}   
+      {isSignupPopupOpen && <Signup closePopup={closeSignupPopup} />}   
     </div>
   );
 };

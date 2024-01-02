@@ -1,4 +1,4 @@
-.block {
+.block_experimental {
     position: relative;
     
     width: 500px;
@@ -8,7 +8,7 @@
 
   
   
-  .block:before, .block:after {
+  .block_experimental:before, .block_experimental:after {
     content: '';
     position: absolute;
     left: -2px;
@@ -34,7 +34,7 @@
     }
   }
   
-  .block:after {
+  .block_experimental:after {
     filter: blur(50px);
   }
 
