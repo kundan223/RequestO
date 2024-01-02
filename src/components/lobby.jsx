@@ -2,12 +2,13 @@ import React from "react";
 import circle from "../asssets/circle.png";
 import circle2 from "../asssets/circle2.png";
 import background from "../asssets/background.png";
-
+import "./lobby.css";
 const Lobby = () => {
   
 
   return (
-    <div className="bg-black bg-opacity-5 text-white h-[800px] w-[700px] mx-auto my-20 shadow-md rounded-lg border border-white">
+    <div className="bg-black bg-opacity-5 box text-white h-[800px] w-[700px] mx-auto my-20 shadow-md rounded-lg  ">
+      <div className=""></div>
 
       <table className="table-fixed w-full">
         <thead>

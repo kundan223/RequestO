@@ -22,9 +22,8 @@ const Navbar = () => {
         <Link to="/">Home</Link>
         <div className="navbar-right border-orange-500">
           <span
-            className="post-request-text px-3 rounded-full py-1 mb-[auto]"
+            className="post-request-text px-3  py-1 mb-[auto]"
             onClick={openPopup}
-            style={{ border: "1px solid orange" }}
           >
             Post Request
           </span>
