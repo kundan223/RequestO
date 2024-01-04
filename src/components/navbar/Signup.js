@@ -17,16 +17,29 @@ const PopupForm = ({ closePopup }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   const response= await fetch('http://localhost:8080/demo',{
-      method:'POST',
-      body:JSON.stringify(form),
-      headers:{
-        'Content-Type':'application/json'
+    
+    try {
+      const response = await fetch('http://localhost:8080/demo', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json' // Corrected the Content-Type header value
         }
-    const data = await response.json();
-    console.log(formData);
-    closePopup();
-  });
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data = await response.json();
+      console.log(data); // Logging the response data, not formData
+      closePopup();
+    } catch (error) {
+      console.error('Error during fetch:', error);
+      // Handle the error as needed
+    }
+  };
+  
 
   return (
     <div className="popup w-[700px] mx-auto mt-10 p-8 bg-white rounded-lg border-2 border-orange-500">
